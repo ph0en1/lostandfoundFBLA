@@ -2,7 +2,7 @@
 
 A comprehensive web application designed to streamline the process of reporting, searching, and claiming lost items within a school environment. Built with modern web technologies and deployed with enterprise-grade infrastructure.
 
-## 📋 Table of Contents
+##  Table of Contents
 
 - [Overview](#overview)
 - [Features](#features)
@@ -18,7 +18,7 @@ A comprehensive web application designed to streamline the process of reporting,
 - [Future Enhancements](#future-enhancements)
 - [Credits & Attributions](#credits--attributions)
 
-## 🎯 Overview
+##  Overview
 
 The School Lost & Found System is a full-stack web application that addresses the common problem of lost items in educational institutions. The platform provides a centralized, searchable database of found items with role-based access controls, administrative oversight, and an intuitive user interface.
 
@@ -40,7 +40,7 @@ Our digital platform provides:
 - **Role-Based Access**: Different permissions for students and administrators
 - **Mobile Responsive**: Works seamlessly on desktop and mobile devices
 
-## ✨ Features
+##  Features
 
 ### For Students
 
@@ -69,7 +69,7 @@ Our digital platform provides:
 - **Data Validation**: Server-side and client-side validation for all inputs
 - **Protected Routes**: API endpoints secured with authentication middleware
 
-## 🛠 Technology Stack
+##  Technology Stack
 
 ### Frontend
 
@@ -96,7 +96,7 @@ Our digital platform provides:
 - **Edge Functions** - Serverless API endpoints
 - **CDN** - Global content delivery for static assets
 
-## 🏗 System Architecture
+##  System Architecture
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -124,7 +124,7 @@ Our digital platform provides:
 │  └──────────────┘  └──────────────────────────────────┘    │
 └─────────────────────────────────────────────────────────────┘
 ```
-## 📦 Installation & Setup
+##  Installation & Setup
 
 ### Prerequisites
 
@@ -261,7 +261,7 @@ For production deployment to Vercel:
    - **Enable**: Restore user access
    - **Delete**: Permanently remove user account
 
-## 🗄 Database Schema
+##  Database Schema
 
 ### Table: `profiles`
 
@@ -315,179 +315,7 @@ Stores uploaded photos of found items.
 - Supports JPG, PNG image formats
 - Automatic cleanup on item deletion
 
-## 🔌 API Documentation
-
-### Authentication Endpoints
-
-#### POST `/make-server-4452b5a8/login`
-
-Login with email and password.
-
-**Request Body:**
-
-```json
-{
-  "email": "s123456@school.edu",
-  "password": "student123"
-}
-```
-
-**Response:**
-
-```json
-{
-  "accessToken": "jwt-token",
-  "user": {
-    "id": "uuid",
-    "email": "s123456@school.edu",
-    "role": "student"
-  }
-}
-```
-
-#### POST `/make-server-4452b5a8/signup`
-
-Create a new user account (admin only).
-
-**Request Body:**
-
-```json
-{
-  "email": "s987654@school.edu",
-  "password": "securepassword"
-}
-```
-
-### Items Endpoints
-
-#### GET `/make-server-4452b5a8/items`
-
-Retrieve all approved found items.
-
-**Response:**
-
-```json
-{
-  "items": [
-    {
-      "id": "uuid",
-      "itemName": "Blue Backpack",
-      "category": "Bags & Backpacks",
-      "description": "Navy blue JanSport backpack",
-      "location": "Library 3rd floor",
-      "foundDate": "2025-01-20",
-      "status": "approved",
-      "createdAt": "2025-01-20T10:30:00Z"
-    }
-  ]
-}
-```
-
-#### POST `/make-server-4452b5a8/items`
-
-Submit a new found item.
-
-**Request Body:**
-
-```json
-{
-  "itemName": "iPhone 12",
-  "category": "Electronics",
-  "description": "Black iPhone with cracked screen",
-  "location": "Cafeteria",
-  "foundDate": "2025-01-22",
-  "contactEmail": "s123456@school.edu",
-  "photoData": "base64-encoded-image"
-}
-```
-
-### Claims Endpoints
-
-#### POST `/make-server-4452b5a8/claims`
-
-Submit a claim for a found item.
-
-**Request Body:**
-
-```json
-{
-  "itemId": "uuid",
-  "claimerName": "John Doe",
-  "claimerEmail": "s123456@school.edu",
-  "claimerPhone": "555-0123",
-  "description": "My black iPhone with a distinctive case"
-}
-```
-
-### Admin Endpoints
-
-#### GET `/make-server-4452b5a8/admin/data`
-
-Get all items and claims (admin only).
-
-#### PUT `/make-server-4452b5a8/admin/items/:id`
-
-Update item status (admin only).
-
-**Request Body:**
-
-```json
-{
-  "status": "approved" // or "rejected", "claimed"
-}
-```
-
-#### PUT `/make-server-4452b5a8/admin/claims/:id`
-
-Update claim status (admin only).
-
-**Request Body:**
-
-```json
-{
-  "status": "approved" // or "rejected", "resolved"
-}
-```
-
-### User Management Endpoints (Admin Only)
-
-#### GET `/make-server-4452b5a8/users/list`
-
-List all student accounts.
-
-#### PUT `/make-server-4452b5a8/users/:id/toggle`
-
-Enable or disable a user account.
-
-#### DELETE `/make-server-4452b5a8/users/:id`
-
-Permanently delete a user account.
-
-## 🔐 Demo Accounts
-
-The system includes 8 pre-configured accounts for demonstration purposes:
-
-### Student Accounts (6)
-
-| Email              | Password   | Description       |
-| ------------------ | ---------- | ----------------- |
-| s123456@school.edu | student123 | Student account 1 |
-| s234567@school.edu | student234 | Student account 2 |
-| s345678@school.edu | student345 | Student account 3 |
-| s456789@school.edu | student456 | Student account 4 |
-| s567890@school.edu | student567 | Student account 5 |
-| s678901@school.edu | student678 | Student account 6 |
-
-### Admin Accounts (2)
-
-| Email             | Password | Description             |
-| ----------------- | -------- | ----------------------- |
-| admin@school.edu  | admin123 | Primary admin account   |
-| admin2@school.edu | admin456 | Secondary admin account |
-
-**Note**: Additional student accounts can be created by administrators through the Admin Dashboard → Users tab.
-
-## 💻 Development Process
+##  Development Process
 
 ### Design Decisions
 
@@ -552,43 +380,6 @@ Manual testing performed for:
 - ✅ Mobile responsiveness
 - ✅ Error handling and edge cases
 
-### Challenges & Solutions
-
-#### Challenge 1: Date Validation
-
-**Problem**: Users could submit items with future dates or very old dates.
-
-**Solution**: Implemented dual validation:
-
-- HTML5 `min`/`max` attributes for native browser validation
-- Custom JavaScript validation with user-friendly error messages
-- Server-side validation as final safeguard
-
-#### Challenge 2: User Session Persistence
-
-**Problem**: Users logged out on page refresh.
-
-**Solution**: Utilized Supabase's built-in session management with automatic token refresh and localStorage persistence.
-
-#### Challenge 3: Photo Storage
-
-**Problem**: Storing base64 images in database led to size limitations.
-
-**Solution**: Migrated to Supabase Storage with signed URLs for secure, scalable image hosting.
-
-#### Challenge 4: Duplicate User Accounts
-
-**Problem**: Migration process could create duplicate auth users.
-
-**Solution**: Added deduplication logic on server startup that identifies and removes duplicates, keeping the oldest account.
-
-### Code Quality
-
-- **Consistent Formatting**: ESLint and Prettier configurations
-- **Type Safety**: Strict TypeScript configuration
-- **Component Structure**: Logical separation of concerns
-- **Error Handling**: Try-catch blocks with user-friendly messages
-- **Logging**: Comprehensive console logging for debugging
 
 ### Version Control
 
@@ -596,7 +387,7 @@ Manual testing performed for:
 - Meaningful commit messages
 - Feature branch workflow (recommended)
 
-## 🔒 Security & Privacy
+##  Security & Privacy
 
 ### Authentication
 
@@ -619,7 +410,7 @@ Manual testing performed for:
 
 ### Input Validation
 
-- Client-side validation for UX
+- Client-side validation
 - Server-side validation for security
 - Email format validation
 - Date range validation
@@ -632,7 +423,7 @@ Manual testing performed for:
 - Secure photo storage with signed URLs
 - GDPR-compliant data deletion (user account deletion)
 
-## 📚 Credits & Attributions
+## Credits & Attributions
 
 ### Technologies Used
 
