@@ -258,7 +258,7 @@ For production deployment to Vercel:
 - **Performance**: Purges unused CSS in production
 - **Responsive Design**: Mobile-first approach built-in
 
-### Architecture Decisions
+### Website Architecture
 
 
 ```
