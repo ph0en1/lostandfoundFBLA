@@ -372,7 +372,9 @@ This project uses components from [shadcn/ui](https://ui.shadcn.com/), which are
 - Supabase Documentation - https://supabase.com/docs
 - TypeScript Documentation - https://www.typescriptlang.org/docs/
 - Tailwind CSS Documentation - https://tailwindcss.com/docs
-- Youtube
+- Youtube tutorials & crash courses - https://youtu.be
+- Stack overflow for debugging - https://stackoverflow.com
+- 
 
 ---
 
