@@ -6,7 +6,7 @@ A comprehensive web application designed to streamline the process of reporting,
 
 - [Overview](#overview)
 - [Features](#features)
-- [Technology Stack](#technology-stack)
+- [App Infrastructure](#technology-stack)
 - [System Architecture](#system-architecture)
 - [Installation & Setup](#installation--setup)
 - [User Guide](#user-guide)
@@ -69,7 +69,7 @@ Our digital platform provides:
 - **Data Validation**: Server-side and client-side validation for all inputs
 - **Protected Routes**: API endpoints secured with authentication middleware
 
-##  Technology Stack
+##  App Infrastructure
 
 ### Frontend
 
@@ -96,33 +96,6 @@ Our digital platform provides:
 - **Edge Functions** - Serverless API endpoints
 - **CDN** - Global content delivery for static assets
 
-##  System Architecture
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│                     Client Layer (Browser)                   │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐      │
-│  │  HomePage    │  │  SearchPage  │  │ AdminDashboard│      │
-│  └──────────────┘  └──────────────┘  └──────────────┘      │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐      │
-│  │ SubmitItem   │  │  LoginPage   │  │UserManagement│      │
-│  └──────────────┘  └──────────────┘  └──────────────┘      │
-└─────────────────────────────────────────────────────────────┘
-                
-
-                            
-                    Supabase Client
-                            │
-┌─────────────────────────────────────────────────────────────┐
-│                    Database Layer (Supabase)                 │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐      │
-│  │  auth.users  │  │   profiles   │  │ reporteditems│      │
-│  └──────────────┘  └──────────────┘  └──────────────┘      │
-│  ┌──────────────┐  ┌──────────────────────────────────┐    │
-│  │  lostitems   │  │  Storage (Item Photos)           │    │
-│  │  (claims)    │  │                                  │    │
-│  └──────────────┘  └──────────────────────────────────┘    │
-└─────────────────────────────────────────────────────────────┘
 ```
 ##  Installation & Setup
 
@@ -174,8 +147,6 @@ The database tables are automatically created on first server startup:
 - `reporteditems` - Found items reported by users
 - `lostitems` - Lost item claims and inquiries
 
-The server includes automatic migration logic that syncs authentication users with the profiles table.
-
 ### Deployment
 
 The application is designed for deployment on:
@@ -190,7 +161,7 @@ For production deployment to Vercel:
 2. Configure build settings (Vite automatically detected)
 3. Deploy with a single click
 
-## 📖 User Guide
+##  User Guide
 
 ### For Students
 
@@ -261,59 +232,7 @@ For production deployment to Vercel:
    - **Enable**: Restore user access
    - **Delete**: Permanently remove user account
 
-##  Database Schema
 
-### Table: `profiles`
-
-Stores user profile information synced from Supabase Auth.
-
-| Column     | Type        | Description                        |
-| ---------- | ----------- | ---------------------------------- |
-| id         | uuid        | Primary key, matches auth.users.id |
-| email      | text        | User's email address               |
-| name       | text        | User's display name                |
-| role       | text        | User role: 'student' or 'admin'    |
-| status     | text        | Account status                     |
-| type       | text        | Account type classification        |
-| created_at | timestamptz | Account creation timestamp         |
-
-### Table: `reporteditems`
-
-Stores found items reported by users.
-
-| Column      | Type        | Description                                  |
-| ----------- | ----------- | -------------------------------------------- |
-| id          | uuid        | Primary key                                  |
-| name        | text        | Item name/title                              |
-| description | text        | Detailed description                         |
-| location    | text        | Where item was found                         |
-| category    | text        | Item category                                |
-| date        | text        | Date item was found (ISO format)             |
-| status      | text        | 'pending', 'approved', 'rejected', 'claimed' |
-| created_at  | timestamptz | Submission timestamp                         |
-
-### Table: `lostitems`
-
-Stores claim requests and lost item inquiries.
-
-| Column      | Type        | Description                                                  |
-| ----------- | ----------- | ------------------------------------------------------------ |
-| id          | uuid        | Primary key                                                  |
-| name        | text        | Claimer's name                                               |
-| description | text        | JSON with claim details (itemId, email, phone, verification) |
-| location    | text        | Reference to item ID                                         |
-| category    | text        | 'CLAIM' for claim requests                                   |
-| date        | text        | Claim submission date                                        |
-| status      | text        | 'pending', 'approved', 'rejected', 'resolved'                |
-| created_at  | timestamptz | Claim submission timestamp                                   |
-
-### Storage Bucket: `make-4452b5a8-lost-found-photos`
-
-Stores uploaded photos of found items.
-
-- Private bucket with signed URL access
-- Supports JPG, PNG image formats
-- Automatic cleanup on item deletion
 
 ##  Development Process
 
@@ -341,10 +260,9 @@ Stores uploaded photos of found items.
 
 ### Architecture Decisions
 
-#### Three-Tier Architecture
 
 ```
-Frontend (React) → Server (Edge Functions) → Database (Supabase)
+React → Edge Function → Supabase
 ```
 
 **Benefits:**
@@ -457,10 +375,11 @@ This project uses components from [shadcn/ui](https://ui.shadcn.com/), which are
 - Supabase Documentation - https://supabase.com/docs
 - TypeScript Documentation - https://www.typescriptlang.org/docs/
 - Tailwind CSS Documentation - https://tailwindcss.com/docs
+- Youtube
 
 ---
 
-## 📄 License
+##  License
 
 This project is developed for educational purposes as part of a school project presentation.
 
