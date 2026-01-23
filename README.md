@@ -96,7 +96,7 @@ Our digital platform provides:
 - **Edge Functions** - Serverless API endpoints
 - **CDN** - Global content delivery for static assets
 
-```
+
 ##  Installation & Setup
 
 ### Prerequisites
