@@ -122,22 +122,19 @@ Our digital platform provides:
    pnpm install
    ```
 
-3. **Configure environment variables**
-
-   The following environment variables are already configured in Supabase:
-   - `SUPABASE_URL` - Your Supabase project URL
-   - `SUPABASE_ANON_KEY` - Public anonymous key
-   - `SUPABASE_SERVICE_ROLE_KEY` - Service role key (keep secret!)
-
-4. **Start development server**
+3. **Start development server**
 
    ```bash
    npm run dev
    ```
 
-5. **Access the application**
+4. **Access the application**
 
    Open your browser to `http://localhost:5173`
+
+OR 
+
+visit https://lostandfoundacp.netlify.app for live app
 
 ### Database Setup
 
